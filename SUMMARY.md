@@ -6,7 +6,7 @@
 * [Introduction](digital-twin/01-overview/01-introduction.md)
 * [Deployment](digital-twin/01-overview/02-deployment.md)
 * [Architecture](digital-twin/01-overview/03-architecture.md)
-* [Security & Access](digital-twin/01-overview/04-security-and-access.md)
+* [Security & Access](digital-twin/01-overview/04-security-&-access.md)
 
 ### Using Digital Twin
 * [Configuration](digital-twin/02-using-digital-twin/01-configuration.md)
