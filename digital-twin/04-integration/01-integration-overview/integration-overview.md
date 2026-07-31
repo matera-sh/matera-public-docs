@@ -1,6 +1,6 @@
 # Digital Twin Integration - Overview
 
-**Digital Twin (DTW)** provides several integration options. These integration interfaces enable core banking systems to keep Digital Twin synchronized, upstream applications to request financial operations, downstream systems to consume completed transactions, and client applications to query balances and account information.
+**Digital Twin provides several integration options. These integration interfaces enable core banking systems to keep Digital Twin synchronized, upstream applications to request financial operations, downstream systems to consume completed transactions, and client applications to query balances and account information.
 
 ## Table of Contents
 
