@@ -14,7 +14,7 @@
 * [Transaction Processing](digital-twin/02-using-digital-twin/03-transaction-processing.md)
 
 ### Installation
-* [Prerequisites & Getting Started](digital-twin/03-installation/01-prerequisites-and-getting-started.md)
+* [Prerequisites & Getting Started](digital-twin/03-installation/01-prerequisites-&-getting-started.md)
 
 ### Integration
 * [Integration Overview](digital-twin/04-integration/01-integration-overview/integration-overview.md)
