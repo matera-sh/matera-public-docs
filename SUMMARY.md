@@ -25,4 +25,4 @@
 * [Transaction APIs](digital-twin/04-integration/03-apis/02-transaction-apis.md)
 * [Registry APIs](digital-twin/04-integration/03-apis/03-registry-apis.md)
 * [Balance & Statements APIs](digital-twin/04-integration/03-apis/04-balance-and-statement-apis.md)
-* [Composite Transaction APIs](digital-twin/04-integration/03-apis/05-composite-transaction-api.md)
+* [Composite Transaction APIs](digital-twin/04-integration/03-apis/05-composite-transaction-apis.md)
