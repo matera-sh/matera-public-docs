@@ -1,8 +1,6 @@
 
 # Digital Twin Introduction
 
-## Introduction
-
 Digital Twin is a high performance ledger purpose built for real-time financial operations.
 
 It enables 24X7 money movement and balance inquiries whether a Core banking system is up or down.
