@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matera Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #000023;
+      --surface:   #10122C;
+      --surface2:  #15173A;
+      --border:    #2A2B4A;
+      --green:     #6BFF50;
+      --purple:    #461DDD;
+      --purple-lt: #7B6CF6;
+      --white:     #FFFFFF;
+      --muted:     #C7C8E0;
+      --dimmed:    #6B6D8F;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      padding: 72px 48px 64px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(107,255,80,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0.4;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .wordmark {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--green);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 520px;
+    }
+
+    .hero-meta { text-align: right; flex-shrink: 0; }
+
+    .hero-meta .badge {
+      display: inline-block;
+      background: rgba(70,29,221,0.25);
+      border: 1px solid var(--purple-lt);
+      color: var(--purple-lt);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .hero-meta p { color: var(--dimmed); font-size: 12px; }
+
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 48px 80px;
+    }
+
+    .product-section { margin-bottom: 64px; }
+
+    .product-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .product-dot.green { background: var(--green); box-shadow: 0 0 8px rgba(107,255,80,0.5); }
+    .product-dot.purple { background: var(--purple-lt); box-shadow: 0 0 8px rgba(123,108,246,0.5); }
+
+    .product-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      flex: 1;
+    }
+
+    .product-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+
+    .product-tag.active {
+      color: var(--green);
+      border-color: rgba(107,255,80,0.3);
+      background: rgba(107,255,80,0.06);
+    }
+
+    .product-tag.soon {
+      color: var(--dimmed);
+      border-color: var(--border);
+      background: transparent;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .doc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .doc-card:hover { border-color: rgba(107,255,80,0.3); }
+
+    .doc-card-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-card-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(107,255,80,0.08);
+      border: 1px solid rgba(107,255,80,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .doc-card-icon svg { width: 16px; height: 16px; }
+
+    .doc-card-header h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .doc-links { padding: 8px 0; }
+
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+    }
+
+    .doc-link:hover {
+      color: var(--white);
+      background: rgba(107,255,80,0.04);
+      border-left-color: var(--green);
+      padding-left: 22px;
+    }
+
+    .doc-link .link-arrow {
+      margin-left: auto;
+      opacity: 0;
+      color: var(--green);
+      font-size: 12px;
+      transition: opacity 0.15s;
+      flex-shrink: 0;
+    }
+
+    .doc-link:hover .link-arrow { opacity: 1; }
+
+    .doc-link .link-icon {
+      width: 16px; height: 16px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    .doc-link--child {
+      padding-left: 36px;
+      font-size: 13px;
+      color: var(--dimmed);
+    }
+
+    .doc-link--child:hover {
+      padding-left: 38px;
+      color: var(--muted);
+      border-left-color: var(--green);
+    }
+
+    .doc-link--grandchild {
+      padding-left: 52px;
+      font-size: 12px;
+      color: var(--dimmed);
+    }
+
+    .doc-link--grandchild:hover {
+      padding-left: 54px;
+      color: var(--muted);
+      border-left-color: var(--green);
+    }
+
+    .coming-soon-card {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .coming-soon-card .cs-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(123,108,246,0.1);
+      border: 1px solid rgba(123,108,246,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .coming-soon-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .coming-soon-card p {
+      color: var(--dimmed);
+      font-size: 13px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+    }
+
+    footer .foot-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p { color: var(--dimmed); font-size: 12px; }
+    footer a { color: var(--green); text-decoration: none; font-size: 12px; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .hero, .main { padding: 40px 24px; }
+      .hero-meta { display: none; }
+      .doc-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="wordmark">Matera</div>
+        <h1>Documentation</h1>
+        <p>Technical references, integration guides, and configuration resources for Matera products.</p>
+      </div>
+      <div class="hero-meta">
+        <div class="badge">matera-public-docs</div>
+        <p>github.com/matera-sh</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- DIGITAL TWIN -->
+    <section class="product-section">
+      <div class="product-header">
+        <div class="product-dot green"></div>
+        <h2>Digital Twin</h2>
+        <span class="product-tag active">Available</span>
+      </div>
+
+      <div class="doc-grid">
+
+        <!-- Overview -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="#6BFF50" stroke-width="1.5">
+                <circle cx="8" cy="8" r="6"/>
+                <path d="M8 5v4M8 11v.5"/>
+              </svg>
+            </div>
+            <h3>Overview</h3>
+          </div>
+          <nav class="doc-links">
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/01-introduction.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Introduction
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/02-deployment.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Deployment
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/03-architecture.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Architecture
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/04-security-and-access.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Security &amp; Access
+              <span class="link-arrow">↗</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Using Digital Twin -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="#6BFF50" stroke-width="1.5">
+                <rect x="2" y="3" width="12" height="10" rx="2"/>
+                <path d="M5 7l2 2 4-3"/>
+              </svg>
+            </div>
+            <h3>Using Digital Twin</h3>
+          </div>
+          <nav class="doc-links">
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/01-configuration.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Configuration
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/02-authorization-process.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Authorization Process
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/03-transaction-processing.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Transaction Processing
+              <span class="link-arrow">↗</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Installation -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="#6BFF50" stroke-width="1.5">
+                <path d="M8 2v8M5 7l3 3 3-3M3 13h10"/>
+              </svg>
+            </div>
+            <h3>Installation</h3>
+          </div>
+          <nav class="doc-links">
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/03-installation/01-prerequisites-and-getting-started.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Prerequisites &amp; Getting Started
+              <span class="link-arrow">↗</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Integration -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="#6BFF50" stroke-width="1.5">
+                <path d="M3 8h10M9 5l3 3-3 3"/>
+                <circle cx="3" cy="8" r="1.5"/>
+              </svg>
+            </div>
+            <h3>Integration</h3>
+          </div>
+          <nav class="doc-links">
+            <a class="doc-link" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/01-integration-overview/integration-overview.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Integration Overview
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--child" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/01-incoming-events.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Inbound Events
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--child" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/02-commands.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Commands
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--child" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/03-published-events.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Published Events
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--child" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/01-api-overview.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              API Overview
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--grandchild" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/02-transaction-apis.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Transaction APIs
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--grandchild" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/03-registry-apis.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Registry APIs
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--grandchild" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/04-balance-and=statement-a.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Balance &amp; Statements APIs
+              <span class="link-arrow">↗</span>
+            </a>
+            <a class="doc-link doc-link--grandchild" href="https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/05-composite-transaction-api.md" target="_blank">
+              <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h9M2 8h9M2 12h6"/></svg>
+              Composite Transaction APIs
+              <span class="link-arrow">↗</span>
+            </a>
+          </nav>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <!-- QR CODE -->
+    <section class="product-section">
+      <div class="product-header">
+        <div class="product-dot purple"></div>
+        <h2>QR Code</h2>
+        <span class="product-tag soon">Coming Soon</span>
+      </div>
+
+      <div class="coming-soon-card">
+        <div class="cs-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7B6CF6" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/>
+            <rect x="18" y="18" width="3" height="3"/>
+          </svg>
+        </div>
+        <h3>Documentation coming soon</h3>
+        <p>QR Code product documentation is being prepared and will be published here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="foot-inner">
+      <p>© 2026 Matera. Public documentation repository.</p>
+      <a href="https://github.com/matera-sh/matera-public-docs" target="_blank">github.com/matera-sh/matera-public-docs →</a>
+    </div>
+  </footer>
+
+</body>
+</html>
