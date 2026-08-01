@@ -29,4 +29,4 @@
 
 ## QR Code
 
-* [Installation Guide](https://github.com/matera-sh/matera-public-docs/blob/main/qr-code/installation-guide.md)
+* [Installation Guide](qr-code/installation-guide.md)
