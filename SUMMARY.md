@@ -26,7 +26,3 @@
     * [Registry APIs](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/03-registry-apis.md)
     * [Balance & Statements APIs](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/04-balance-and-statement-apis.md)
     * [Composite Transaction APIs](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/05-composite-transaction-apis.md)
-
-## QR Code
-
-* [Installation Guide](qr-code/installation-guide.md)
