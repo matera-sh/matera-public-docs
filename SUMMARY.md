@@ -1,22 +1,21 @@
-# Summary
+# Table of contents
+
+* [README](README.md)
 
 ## Digital Twin
 
-* Overview
+* [Overview](digital-twin/overview/README.md)
   * [Introduction](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/01-introduction.md)
   * [Deployment](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/02-deployment.md)
   * [Architecture](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/03-architecture.md)
   * [Security & Access](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/01-overview/04-security-and-access.md)
-
-* Using Digital Twin
+* [Using Digital Twin](digital-twin/using-digital-twin/README.md)
   * [Configuration](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/01-configuration.md)
   * [Authorization Process](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/02-authorization-process.md)
   * [Transaction Processing](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/02-using-digital-twin/03-transaction-processing.md)
-
-* Installation
+* [Installation](digital-twin/installation/README.md)
   * [Prerequisites & Getting Started](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/03-installation/01-prerequisites-&-getting-started.md)
-
-* Integration
+* [Integration](digital-twin/integration/README.md)
   * [Integration Overview](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/01-integration-overview/integration-overview.md)
   * [Inbound Events](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/01-incoming-events.md)
   * [Commands](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/02-commands.md)
@@ -29,4 +28,4 @@
 
 ## QR Code
 
-* Documentation coming soon
+* [Documentation coming soon](qr-code/documentation-coming-soon.md)
