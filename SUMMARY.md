@@ -20,7 +20,7 @@
   * [Inbound Events](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/01-incoming-events.md)
   * [Commands](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/02-commands.md)
   * [Published Events](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/02-events/03-published-events.md)
-  * [API Overview](digital-twin/integration/api-overview/README.md)
+  * [APIs](digital-twin/integration/api-overview/README.md)
     * [API Overview](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/01-api-overview.md)
     * [Transaction APIs](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/02-transaction-apis.md)
     * [Registry APIs](https://github.com/matera-sh/matera-public-docs/blob/main/digital-twin/04-integration/03-apis/03-registry-apis.md)
