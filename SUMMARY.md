@@ -27,4 +27,5 @@
     * [Balance & Statements APIs](digital-twin/04-integration/03-apis/04-balance-and-statement-apis.md)
     * [Composite Transaction APIs](digital-twin/04-integration/03-apis/05-composite-transaction-apis.md)
 ## QR Code
-* [Installation Guide](qr-code/installation-guide.md)
+   * [Installation Guide](qr-code/installation-guide.md)
+   * [API Reference](qr-code/api-reference.md)
